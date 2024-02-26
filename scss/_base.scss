@@ -1,0 +1,75 @@
+// COLOUR VARIABLES
+
+$colour-primary: #83c5be;
+$colour-primary-dark: #006d77;
+
+$colour-secondary: #ffddd2;
+$colour-secondary-dark: #e29578;
+
+$colour-grey-light-1: #f9f7f6;
+$colour-grey-light-2: #aaa;
+
+$colour-grey-dark-1: #343a3a;
+
+$colour-blue-light: #a9cef4;
+$colour-emerald: #59cd90;
+$colour-yellow: #fac05e;
+$colour-purple: #634b66;
+$colour-green-light: #a0c1b9;
+
+// FONT VARIABLES
+
+$font-primary: 'Playfair Display', serif;
+$font-display: 'Roboto', sans-serif;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; //so 1rem = 16px
+}
+
+body {
+  font-family: $font-primary;
+  color: $colour-grey-dark-1;
+  font-weight: 300;
+  line-height: 1.6;
+  font-size: 1.6rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+//TYPOGRAPHY
+
+%heading {
+  font-family: $font-primary;
+  font-weight: 300;
+}
+
+.heading-1 {
+  @extend %heading;
+  font-size: 3.4rem;
+  color: #fff;
+}
+
+.heading-2 {
+  @extend %heading;
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.heading-3 {
+  @extend %heading;
+  font-size: 1.8rem;
+}

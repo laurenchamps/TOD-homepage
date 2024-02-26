@@ -1,0 +1,73 @@
+@use 'base';
+
+.projects {
+  font-family: base.$font-display;
+  padding: 12vh 8vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-rows: 5rem;
+  grid-auto-rows: minmax(30rem, max-content);
+  align-items: start;
+  column-gap: 3rem;
+  row-gap: 4rem;
+
+  & > .heading-2 {
+    grid-column: 1 / -1;
+    align-self: end;
+  }
+}
+
+.project {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  height: 100%;
+  align-content: start;
+  gap: 1rem;
+  box-shadow: 0 1.5rem 4rem rgba(#000, 0.15);
+
+  &__img {
+    grid-column: 1 / -1;
+    height: 15rem;
+
+    &--1 {
+      background-color: base.$colour-secondary-dark;
+    }
+
+    &--2 {
+      background-color: base.$colour-blue-light;
+    }
+
+    &--3 {
+      background-color: base.$colour-emerald;
+    }
+    &--4 {
+      background-color: base.$colour-green-light;
+    }
+    &--5 {
+      background-color: base.$colour-purple;
+    }
+    &--6 {
+      background-color: base.$colour-yellow;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+    font-size: 1.3rem;
+    padding: 0 1rem 2rem 1rem;
+  }
+
+  &__icons {
+    grid-column: 2 / -1;
+    justify-self: end;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 1.4rem;
+  }
+
+  &__name,
+  &__icons {
+    padding: 0 1rem;
+  }
+}
