@@ -1,21 +1,31 @@
 @use 'base';
 
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 60%);
+  background-color: base.$colour-primary-dark;
+  z-index: -2;
+}
+
 .about {
   font-family: base.$font-display;
   min-height: 30rem;
   display: grid;
   grid-template-columns: 40% 60%;
   position: relative;
+  margin-top: 6vh;
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);
-    background-color: base.$colour-primary-dark;
+  @media only screen and (max-width: base.$bp-large) {
+    display: block;
+    max-width: 80%;
+    margin: 8rem auto;
+  }
+
+  @media only screen and (max-width: base.$bp-medium) {
+    display: flex;
+    flex-direction: column;
   }
 
   &__img {
@@ -23,15 +33,36 @@
     margin-left: 8vw;
     margin-top: 6vh;
     grid-column: 1 / 2;
-    z-index: 1;
+    z-index: 10;
     position: relative;
     background: black;
+
+    @media only screen and (max-width: base.$bp-large) {
+      float: left;
+      margin: 0;
+      margin-right: 30px;
+      margin-bottom: 20px;
+      z-index: 10;
+    }
+
+    @media only screen and (max-width: base.$bp-medium) {
+      float: none;
+      margin: 0;
+    }
 
     & img {
       width: 100%;
       display: block;
       object-fit: cover;
-      opacity: 0.8;
+      object-position: right;
+
+      @media only screen and (max-width: base.$bp-large) {
+        max-width: 350px;
+      }
+
+      @media only screen and (max-width: base.$bp-medium) {
+        max-width: 100%;
+      }
     }
 
     & h1 {
@@ -40,22 +71,57 @@
       z-index: 10;
       width: 100%;
       text-align: center;
+      background-color: rgba(base.$colour-primary-dark, 0.6);
     }
   }
 
   &__content {
+    position: relative;
     padding: 4vh 4vw;
-    background-color: #fff;
     grid-column: 2 / -1;
-    margin: 6rem 8vw 6rem 0;
-    max-height: 60%;
-    z-index: 1;
-    box-shadow: 0 1.5rem 4rem rgba(#000, 0.15);
+    margin: 10rem 8vw 6rem 0;
+    z-index: -1;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 2rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: #fff;
+      z-index: -1;
+      box-shadow: 0 1.5rem 4rem rgba(#000, 0.15);
+
+      @media only screen and (max-width: base.$bp-large) {
+        margin: 0 8rem 8rem 0;
+        transform: translate(10rem, 10rem);
+      }
+
+      @media only screen and (max-width: base.$bp-medium) {
+        transform: none;
+        margin: 0;
+      }
+    }
+
+    @media only screen and (max-width: base.$bp-large) {
+      display: block;
+      padding: 15rem 2rem 1rem 15rem;
+      margin: 0 0 0 1rem;
+    }
+
+    @media only screen and (max-width: base.$bp-medium) {
+      padding: 2rem;
+      margin: 0;
+    }
+
+    & .heading-2 {
+      @media only screen and (max-width: base.$bp-large) {
+        margin-bottom: 3rem;
+      }
+    }
   }
 
   &__icons {
@@ -63,5 +129,9 @@
     display: flex;
     gap: 1rem;
     justify-content: flex-end;
+
+    @media only screen and (max-width: base.$bp-large) {
+      margin-top: 3rem;
+    }
   }
 }

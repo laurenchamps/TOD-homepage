@@ -22,6 +22,10 @@ $colour-green-light: #a0c1b9;
 $font-primary: 'Playfair Display', serif;
 $font-display: 'Roboto', sans-serif;
 
+// BREAKPOINTS
+$bp-large: 75em; // 1000px
+$bp-medium: 46.87em; // 750px
+
 *,
 *::before,
 *::after {
